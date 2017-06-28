@@ -24,10 +24,12 @@ $(function() {
                     text: text
                 },
 			    headers : {
-				'Access-Control-Allow-Headers': 'Authorization,Access-Control-Allow-Headers',
+				'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers,Authorization',
                 'content-type': 'application/x-www-form-urlencoded',
                 'Authorization': 'Basic ' + window.btoa('api:key-0b6d1e7915f49980434aa50e15b75e3b')
                 },
+				crossDomain: true,
+				processData: false,
                 cache: false,
                 success: function() {
                     // Success message
