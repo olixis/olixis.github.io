@@ -8,23 +8,24 @@ $(function() {
         submitSuccess: function($form, event) {
             event.preventDefault(); // prevent default submit behaviour
             // get values from FORM
-            var name = $("input#name").val();
-            var email = $("input#email").val();
+            var subject = $("input#subject").val();
+            var from = $("input#from").val();
+			var to = $("input#to").val();
             var phone = $("input#phone").val();
-            var message = $("textarea#message").val();
+            var text = $("textarea#message").val();
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: "https://api:key-0b6d1e7915f49980434aa50e15b75e3b@api.mailgun.net/v3/email.dendev.com.br/messages",
                 type: "POST",
                 data: {
-                    name: name,
-                    phone: phone,
-                    email: email,
-                    message: message
+                    subject: subject,
+					to: to,                    
+                    from: from,
+                    text: text
                 },
                 cache: false,
                 success: function() {
