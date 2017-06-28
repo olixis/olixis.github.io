@@ -13,11 +13,7 @@ $(function() {
 			var to = $("input#to").val();
             var phone = $("input#phone").val();
             var text = $("textarea#message").val();
-            var firstName = name; // For Success/Failure Message
-            // Check for white space in name for Success/Fail message
-            if (firstName.indexOf(' ') >= 0) {
-                firstName = name.split(' ').slice(0, -1).join(' ');
-            }
+
             $.ajax({
                 url: "https://api:key-0b6d1e7915f49980434aa50e15b75e3b@api.mailgun.net/v3/email.dendev.com.br/messages",
                 type: "POST",
@@ -46,7 +42,7 @@ $(function() {
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
-                    $('#success > .alert-danger').append($("<strong>").text("Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!"));
+                    $('#success > .alert-danger').append($("<strong>").text("Sorry " + ", it seems that my mail server is not responding. Please try again later!"));
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
                     $('#contactForm').trigger("reset");
