@@ -24,7 +24,7 @@ $(function () {
                     text: text
                 },
                 beforeSend: function (request) {
-                    request.setRequestHeader("Access-Control-Allow-Headers", "Authorization, Access-Control-Allow-Origin");
+                    request.setRequestHeader("Access-Control-Allow-Headers", "Authorization, Access-Control-Allow-Origin, Content-Type, x-requested-with");
                     request.setRequestHeader("Authorization", "Basic " + window.btoa('api:key-0b6d1e7915f49980434aa50e15b75e3b'));
                     request.setRequestHeader("Access-Control-Allow-Origin", "*");
                 },
