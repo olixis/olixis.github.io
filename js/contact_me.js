@@ -24,7 +24,7 @@ $(function() {
                     text: text
                 },
 			    headers : {
-                "Access-Control-Allow-Headers": "Authorization",
+                "Access-Control-Allow-Headers": "Authorization Access-Control-Allow-Origin",
                 "Authorization": "Basic " + window.btoa('api:key-0b6d1e7915f49980434aa50e15b75e3b'),
 				"Access-Control-Allow-Origin": "*"
                 },
