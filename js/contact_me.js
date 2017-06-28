@@ -1,16 +1,16 @@
-$(function() {
+$(function () {
 
     $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
         preventSubmit: true,
-        submitError: function($form, event, errors) {
+        submitError: function ($form, event, errors) {
             // additional error messages or events
         },
-        submitSuccess: function($form, event) {
+        submitSuccess: function ($form, event) {
             event.preventDefault(); // prevent default submit behaviour
             // get values from FORM
             var subject = $("input#subject").val();
             var from = $("input#from").val();
-			var to = $("input#to").val();
+            var to = $("input#to").val();
             var phone = $("input#phone").val();
             var text = $("textarea#message").val();
 
@@ -19,18 +19,18 @@ $(function() {
                 type: "POST",
                 data: {
                     subject: subject,
-					to: to,                    
+                    to: to,
                     from: from,
                     text: text
                 },
-			    headers : {
-                "Access-Control-Allow-Headers": "Authorization Access-Control-Allow-Origin",
-                "Authorization": "Basic " + window.btoa('api:key-0b6d1e7915f49980434aa50e15b75e3b'),
-				"Access-Control-Allow-Origin": "*"
+                beforeSend: function (request) {
+                    request.setRequestHeader("Access-Control-Allow-Headers", "Authorization, Access-Control-Allow-Origin");
+                    request.setRequestHeader("Authorization", "Basic " + window.btoa('api:key-0b6d1e7915f49980434aa50e15b75e3b'));
+                    request.setRequestHeader("Access-Control-Allow-Origin", "*");
                 },
-				crossDomain: true,
+                crossDomain: true,
                 cache: false,
-                success: function() {
+                success: function () {
                     // Success message
                     $('#success').html("<div class='alert alert-success'>");
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -43,7 +43,7 @@ $(function() {
                     //clear all fields
                     $('#contactForm').trigger("reset");
                 },
-                error: function() {
+                error: function () {
                     // Fail message
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -55,12 +55,12 @@ $(function() {
                 },
             });
         },
-        filter: function() {
+        filter: function () {
             return $(this).is(":visible");
         },
     });
 
-    $("a[data-toggle=\"tab\"]").click(function(e) {
+    $("a[data-toggle=\"tab\"]").click(function (e) {
         e.preventDefault();
         $(this).tab("show");
     });
@@ -68,6 +68,6 @@ $(function() {
 
 
 /*When clicking on Full hide fail/success boxes */
-$('#subject').focus(function() {
+$('#subject').focus(function () {
     $('#success').html('');
 });
