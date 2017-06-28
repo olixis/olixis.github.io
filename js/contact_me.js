@@ -25,9 +25,7 @@ $(function() {
                 },
 			    headers : {
                 'Authorization': 'Basic ' + window.btoa('api:key-0b6d1e7915f49980434aa50e15b75e3b'),
-				'Access-Control-Allow-Origin': '*',
-				'Access-Control-Allow-Methods': 'OPTIONS,POST',
-				'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers,Access-Control-Allow-Origin,Origin,Access-Control-Allow-Methods, X-Requested-With, Content-Type, Accept, Authorization'
+				'Access-Control-Allow-Origin': '*'
                 },
 				crossDomain: true,
                 cache: false,
