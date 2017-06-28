@@ -15,13 +15,17 @@ $(function() {
             var text = $("textarea#message").val();
 
             $.ajax({
-                url: "https://api:key-0b6d1e7915f49980434aa50e15b75e3b@api.mailgun.net/v3/email.dendev.com.br/messages",
+                url: "https://api.mailgun.net/v3/email.dendev.com.br/messages",
                 type: "POST",
                 data: {
                     subject: subject,
 					to: to,                    
                     from: from,
                     text: text
+                },
+			    headers : {
+                'content-type': 'application/x-www-form-urlencoded',
+                'Authorization': 'Basic ' + $base64.encode('api:key-0b6d1e7915f49980434aa50e15b75e3b')
                 },
                 cache: false,
                 success: function() {
