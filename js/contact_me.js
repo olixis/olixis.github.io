@@ -15,7 +15,7 @@ $(function() {
             var text = $("textarea#message").val();
 
             $.ajax({
-                url: "https://api:key-0b6d1e7915f49980434aa50e15b75e3b@api.mailgun.net/v3/email.dendev.com.br/messages",
+                url: "https://api.mailgun.net/v3/email.dendev.com.br/messages",
                 type: "POST",
                 data: {
                     subject: subject,
@@ -23,8 +23,10 @@ $(function() {
                     from: from,
                     text: text
                 },
+			    headers : {
+                'Authorization': 'Basic ' + window.btoa('api:key-0b6d1e7915f49980434aa50e15b75e3b')
+                },
 				crossDomain: true,
-				processData: false,
                 cache: false,
                 success: function() {
                     // Success message
