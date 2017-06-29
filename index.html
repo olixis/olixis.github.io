@@ -409,11 +409,11 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form id="contactForm" method="POST" name="sentMessage" novalidate>
+                    <form id="contactForm" method="POST" action="https://api:key-0b6d1e7915f49980434aa50e15b75e3b@api.mailgun.net/v3/email.dendev.com.br/messages" name="sentMessage" novalidate>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" id="subject" type="text" placeholder="Your Subject *" required data-validation-required-message="Please enter your name.">
+                                    <input class="form-control" id="subject" name="subject" type="text" placeholder="Your Subject *" required data-validation-required-message="Please enter the subject.">
                                     <p class="help-block text-danger"></p>
                                 </div>
 								<input type="hidden" id="to" name="to" value="contato@dendev.com.br" />
@@ -688,7 +688,7 @@
 
     <!-- Contact form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <!--<script src="js/contact_me.js"></script>-->
 
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
