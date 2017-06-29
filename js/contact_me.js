@@ -15,10 +15,10 @@ $(function () {
             var text = $("textarea#message").val();
 
             $.ajax({
-                url: "https://api.mailgun.net/v3/email.dendev.com.br/messages",
+                url: "https://formspree.io/you@email.com",
                 type: "POST",
                 data: {
-                    subject: subject,
+                    _subject: subject,
                     to: to,
                     from: from,
                     text: text
